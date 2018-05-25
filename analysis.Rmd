@@ -1,7 +1,8 @@
 ---
 params:
-  github_repo_url: 'https://github.com/MingChen0919/ming-project-template'
-title: "Analysis: [Back to Github repo](https://github.com/MingChen0919/ming-project-template)"
+  github_repo_url: 'https://github.com/MingChen0919/test-project'
+  github_site_url: 'https://mingchen0919.github.io/test-project'
+title: "Analysis: [Back to Github repo](https://github.com/MingChen0919/test-project)"
 output:
     html_document:
       highlight: pygments
@@ -73,9 +74,17 @@ file_tree = function(dir = '.'){
       if (length(files) > 0) {
         lapply(files, function(x){
           path_end = tail(strsplit(x, '/')[[1]],1)
-          li_item = tags$li(tags$a(path_end, href=paste0(github_repo_url, x)))
-          li_item$attribs = list('data-jstree'='{"icon":"jstree-file"}')
-          li_item
+          if (grepl('\\.html$', path_end)) {
+            li_item = tags$li(tags$a(path_end, href=paste0(params$github_site_url, x)))
+            li_item$attribs = list('data-jstree'='{"icon":"jstree-file"}')
+            li_item
+          }
+          # skip, we don't want to display Rmd files
+          else if (!grepl('\\.Rmd$', path_end)){
+            li_item = tags$li(tags$a(path_end, href=paste0(github_repo_url, x)))
+            li_item$attribs = list('data-jstree'='{"icon":"jstree-file"}')
+            li_item
+          }
         })
       }
     },
