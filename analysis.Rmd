@@ -1,7 +1,7 @@
 ---
 params:
-  github_repo_url: 'https://github.com/MingChen0919/my-project'
-title: "`r paste0('[Project on Github](', params$github_repo_url, ')')`"
+  github_repo_url: 'https://github.com/MingChen0919/ming-project-template'
+title: "Analysis: [Back to Github repo](https://github.com/MingChen0919/ming-project-template)"
 output:
     html_document:
       highlight: pygments

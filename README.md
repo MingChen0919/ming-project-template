@@ -1,3 +1,4 @@
-# [My Project](https://mingchen0919.github.io/my-project/)
+# My Project
 
-A project template for creating reproducible project.
+* [Data](https://mingchen0919.github.io/my-project/data.html)
+* [Analysis](https://mingchen0919.github.io/my-project/analysis.html)
