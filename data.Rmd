@@ -74,17 +74,9 @@ file_tree = function(dir = '.'){
       if (length(files) > 0) {
         lapply(files, function(x){
           path_end = tail(strsplit(x, '/')[[1]],1)
-          if (grepl('\\.html$', path_end)) {
-            li_item = tags$li(tags$a(path_end, href=paste0(params$github_site_url, x)))
-            li_item$attribs = list('data-jstree'='{"icon":"jstree-file"}')
-            li_item
-          }
-          # skip, we don't want to display Rmd files
-          else if (!grepl('\\.Rmd$', path_end)){
-            li_item = tags$li(tags$a(path_end, href=paste0(github_repo_url, x)))
-            li_item$attribs = list('data-jstree'='{"icon":"jstree-file"}')
-            li_item
-          }
+          li_item = tags$li(tags$a(path_end, href=paste0(github_repo_url, x)))
+          li_item$attribs = list('data-jstree'='{"icon":"jstree-file"}')
+          li_item
         })
       }
     },
@@ -109,7 +101,8 @@ file_tree = function(dir = '.'){
 # create a div container to store the file tree interface
 tags$div(
   id="jstree",
-  file_tree('analysis')
+  file_tree('data')
 )
 ```
+
 
