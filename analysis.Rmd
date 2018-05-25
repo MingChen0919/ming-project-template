@@ -76,7 +76,7 @@ file_tree = function(dir = '.'){
         lapply(files, function(x){
           path_end = tail(strsplit(x, '/')[[1]],1)
           if (grepl('\\.html$', path_end)) {
-            li_item = tags$li(tags$a(path_end, href=paste0(params$github_site_url, x)))
+            li_item = tags$li(tags$a(path_end, href=paste0(github_site_url, x)))
             li_item$attribs = list('data-jstree'='{"icon":"jstree-file"}')
             li_item
           }
