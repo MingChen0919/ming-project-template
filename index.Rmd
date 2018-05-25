@@ -1,5 +1,7 @@
 ---
-title: '[Python for Data Science](https://github.com/MingChen0919/python-for-data-science)'
+params:
+  github_repo_url: 'https://github.com/MingChen0919/my-project'
+title: "`r paste0('[Project on Github](', params$github_repo_url, ')')`"
 output:
     html_document:
       highlight: pygments
@@ -9,6 +11,16 @@ output:
 knitr::opts_knit$set(progress = FALSE)
 knitr::opts_chunk$set(error = TRUE, echo = FALSE)
 library(htmltools)
+```
+
+```{css echo=FALSE}
+# code chunks scrollable
+pre code, pre, code {
+  white-space: pre !important;
+  overflow-x: scroll !important;
+  word-break: keep-all !important;
+  word-wrap: initial !important;
+}
 ```
 
 ```{r, echo=FALSE}
@@ -55,7 +67,7 @@ file_tree = function(dir = '.'){
   # exclude .ipynb_checkpoints folder
   # ipynb_checkpoints = grep(pattern = 'ipynb_checkpoints', x = dirs)
   # dirs = dirs[-ipynb_checkpoints]
-  github_repo_url = 'https://github.com/MingChen0919/python-for-data-science/blob/master/'
+  github_repo_url = paste0(params$github_repo_url, '/blob/master/')
   tags$ul(
     {
       if (length(files) > 0) {
