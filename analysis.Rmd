@@ -69,6 +69,7 @@ file_tree = function(dir = '.'){
   # ipynb_checkpoints = grep(pattern = 'ipynb_checkpoints', x = dirs)
   # dirs = dirs[-ipynb_checkpoints]
   github_repo_url = paste0(params$github_repo_url, '/blob/master/')
+  github_site_url = paste0(params$github_site_url, '/')
   tags$ul(
     {
       if (length(files) > 0) {
