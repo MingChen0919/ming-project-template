@@ -1,3 +1,3 @@
-# [Python for Data Science](https://mingchen0919.github.io/python-for-data-science/)
+# [My Project](https://mingchen0919.github.io/my-project/)
 
-My notes on anything related to using python for data science.
+A project template for creating reproducible project.
