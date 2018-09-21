@@ -1,12 +1,12 @@
 ---
-title: "Data: [Back to Github repo](https://github.com/MingChen0919/my_project)"
+title: "[My Data](https://github.com/MingChen0919/ming-project-template)"
 output:
     html_document:
       highlight: pygments
 params:
   hidden_folders: 'vakata-jstree-3.3.5, .ipynb_checkpoints, spark-warehouse, ipynb'
-  github_repo_url: 'https://github.com/MingChen0919/my_project/blob/master/'
-  github_site_url: 'https://mingchen0919.github.io/my_project'
+  github_repo_url: 'https://github.com/MingChen0919/ming-project-template/blob/master/'
+  github_site_url: 'https://mingchen0919.github.io/ming-project-template'
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
