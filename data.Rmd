@@ -1,11 +1,12 @@
 ---
-params:
-  github_repo_url: 'https://github.com/MingChen0919/test-project'
-  github_site_url: 'https://mingchen0919.github.io/test-project'
-title: "Data: [Back to Github repo](https://github.com/MingChen0919/test-project)"
+title: "Data: [Back to Github repo](https://github.com/MingChen0919/my_project)"
 output:
     html_document:
       highlight: pygments
+params:
+  hidden_folders: 'vakata-jstree-3.3.5, .ipynb_checkpoints, spark-warehouse, ipynb'
+  github_repo_url: 'https://github.com/MingChen0919/my_project/blob/master/'
+  github_site_url: 'https://mingchen0919.github.io/my_project'
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
@@ -68,13 +69,13 @@ file_tree = function(dir = '.'){
   # exclude .ipynb_checkpoints folder
   # ipynb_checkpoints = grep(pattern = 'ipynb_checkpoints', x = dirs)
   # dirs = dirs[-ipynb_checkpoints]
-  github_repo_url = paste0(params$github_repo_url, '/blob/master/')
+  
   tags$ul(
     {
       if (length(files) > 0) {
         lapply(files, function(x){
           path_end = tail(strsplit(x, '/')[[1]],1)
-          li_item = tags$li(tags$a(path_end, href=paste0(github_repo_url, x)))
+          li_item = tags$li(tags$a(path_end, href=paste0(params$github_repo_url, x)))
           li_item$attribs = list('data-jstree'='{"icon":"jstree-file"}')
           li_item
         })
@@ -84,10 +85,10 @@ file_tree = function(dir = '.'){
       if (length(dirs) > 0) {
         lapply(dirs, function(x){
           path_end = tail(strsplit(x, '/')[[1]],1)
-          if (path_end != '.ipynb_checkpoints') {
+          if (!(path_end %in% strsplit(params$hidden_folders, ','))) {
             li_item = tags$li(path_end, file_tree(x))
-          li_item$attribs = list('data-jstree'='{"icon":"jstree-folder"}')
-          li_item
+            li_item$attribs = list('data-jstree' = '{"icon":"jstree-folder"}', class=list('jstree-open'))
+            li_item
           }
         })
       }
