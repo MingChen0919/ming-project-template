@@ -40,7 +40,7 @@ You can also convert all `.py` files within a folder and its sub-folders
 Whenever you have **new** `.ipynb` file(s) being generated, you will need to run the `.Rmd` files in R to
 generate (update) HTML pages. If you just update the `.ipynb` files, you don't have to run the `.Rmd` files.
 
-To clean up orphaned `.ipynb` files:
+To clean up orphaned `.ipynb` files, which are files that don't have a corresponding `.py` file:
 
 ```shell script
 python clean_up.py
