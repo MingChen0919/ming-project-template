@@ -1,5 +1,5 @@
 ---
-title: '[Ming Project Template](https://github.com/MingChen0919/ming-project-template)'
+title: "[Py Files](https://github.com/MingChen0919/ming-project-template)"
 output:
     html_document:
       highlight: pygments
@@ -15,12 +15,22 @@ knitr::opts_chunk$set(error = TRUE, echo = FALSE)
 library(htmltools)
 ```
 
+```{css echo=FALSE}
+# code chunks scrollable
+pre code, pre, code {
+  white-space: pre !important;
+  overflow-x: scroll !important;
+  word-break: keep-all !important;
+  word-wrap: initial !important;
+}
+```
+
 ```{r, echo=FALSE}
 # to make the css theme to work, <link></link> tags cannot be added directly 
 # as <script></script> tags as below.
 # it has to be added using a code chunk with the htmltool functions!!!
 css_link = tags$link()
-css_link$attribs = list(rel = "stylesheet", href = "vakata-jstree-3.3.5/dist/themes/default/style.min.css")
+css_link$attribs = list(rel="stylesheet", href="vakata-jstree-3.3.5/dist/themes/default/style.min.css")
 css_link
 ```
 
@@ -47,24 +57,13 @@ css_link
 -----------
 
 
-## Introduction
-
-All the documents/tutorials are written as a `.py` file and then converted to `.ipynb` using the python
-package [py2nb](https://github.com/williamjameshandley/py2nb). The files will then be displayed as a clickable
-tree in html format that can be display on github directly.
-
 ## Contents
 
 ```{r, echo=FALSE}
 # create a div container to store the file tree interface
 source('file_tree.R')
 tags$div(
-  id = "jstree",
-  file_tree('nb_files')
+  id="jstree",
+  file_tree('py_files')
 )
 ```
-
-
-## Foot
-
-You can add more text here...
